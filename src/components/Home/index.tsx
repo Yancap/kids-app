@@ -15,8 +15,7 @@ export default function Home() {
             </Text>
           </View>
           <View style={{alignItems: "center"}}>
-            <Image source={require("../../assets/images/kids.jfif")} style={{height: 120, width: 300}}/>
-            <Image source={require("../../assets/images/kids.jfif")}/>
+            <Image source={require("../../assets/images/kids.jpg")} style={{height: 160, width: 320}}/>
           </View>
           <Text style={{color: "#846955", fontSize: 16, marginBottom: 16}}>
             Na ensolarada manhã de domingo, a sala do ministério infantil estava cheia

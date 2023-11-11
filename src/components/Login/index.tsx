@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, TextInput } from 'react-native'
+import { View, Text, SafeAreaView, TextInput, Button } from 'react-native'
 import React from 'react'
 import { styles } from './styles'
 import ButtonInit from '../ButtonInit'
@@ -24,6 +24,7 @@ export default function Login() {
           </Text>
           <TextInput style={styles.input} textContentType="password"/>
         </View>
+        <Button title='Enviar'/>
         <Text style={styles.register}>
           Fazer cadastro
         </Text>

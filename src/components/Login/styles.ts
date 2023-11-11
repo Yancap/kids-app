@@ -4,9 +4,10 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignContent: 'center',
-    width: "90%",
+    width: "100%",
     height: "100%",
-    paddingTop: 16
+    paddingHorizontal: 12,
+    paddingVertical: 16,
   },
   title: {
     fontSize: 36,
@@ -16,9 +17,9 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    height: 28,
+    height: 32,
     borderWidth: 1,
-    padding: 10,
+    padding: 6,
     borderRadius: 8
   },
   inputControl: {
