@@ -1,14 +1,19 @@
 import { View, Text, Pressable } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { styles } from './styles'
 import { useNavigation } from '@react-navigation/native';
+import { UserContext } from '../../context/UserContext';
 
 
 export default function Initializer() {
-  const eduardo = useNavigation()
+  const {setUser} = useContext(UserContext)
+  const link = useNavigation()
   return (
     <View style={styles.container}>
-      <Pressable onPress={() => { eduardo.navigate("Login" as never) }}>
+      <Pressable onPress={() => { 
+        setUser({type: 'criança', name: '', password: ''})
+        link.navigate("Login" as never)
+      }}>
         <Text style={styles.text}>
           Criança
         </Text>
@@ -16,7 +21,10 @@ export default function Initializer() {
       <Text style={styles.text}>
           | 
       </Text>
-      <Pressable onPress={() => { eduardo.navigate("Login" as never) }}>
+      <Pressable onPress={() => { 
+        setUser({type: 'voluntário', name: '', password: ''})
+        link.navigate("Login" as never) 
+      }}>
         <Text style={styles.text}>
           Voluntário
         </Text>

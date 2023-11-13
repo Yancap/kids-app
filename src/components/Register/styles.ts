@@ -2,15 +2,13 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
-    alignContent: 'center',
-    width: "90%",
-    paddingTop: 16
+    paddingVertical: 16,
+    paddingHorizontal: 12
   },
   containerRegister: {
-    gap: 8,
+    gap: 16,
     maxWidth: "100%",
-    marginBottom: 16
+    marginBottom: 32
   },
   formControl: {
     flexDirection: "row",
@@ -25,11 +23,10 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
   },
   input: {
-    height: 28,
+    height: 32,
     borderWidth: 1,
-    padding: 10,
-    flexGrow: 1,
-    borderRadius: 4
+    padding: 6,
+    borderRadius: 8
   },
   inputControl: {
     flexDirection: "column",
@@ -46,11 +43,6 @@ export const styles = StyleSheet.create({
     color: "#846955",
     marginTop: 22,
     textAlign: 'center',
-  },
-  photoInput: {
-    aspectRatio: "1/1",
-    maxWidth: "100%",
-    height: "auto"
   },
   photo: {
     aspectRatio: "1/1",

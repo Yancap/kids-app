@@ -1,12 +1,20 @@
-import { SafeAreaView, ScrollView, Text, View, Image } from 'react-native'
-import React from 'react'
+import { SafeAreaView, ScrollView, Text, View, Image, Pressable } from 'react-native'
+import React, { useContext, useState } from 'react'
 import { styles } from './styles'
 import ButtonMenu from '../ButtonMenu'
+import { useNavigation } from '@react-navigation/native'
+import { UserContext } from '../../context/UserContext'
 
 export default function Home() {
+  const [menu, setMenu] = useState(false)
+  const { user } = useContext(UserContext)
+  const link = useNavigation()
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
+    <>
+      <ScrollView style={[styles.container, {position: 'relative'}]} >
+        <Pressable onPress={() => {setMenu(true)}}>
+          <Image source={require("../../assets/images/menu.png")} style={{height: 16, width: 20}}/>
+        </Pressable>
         <View style={{display: "flex", gap: 16}}>
           <ButtonMenu />
           <View>
@@ -39,6 +47,66 @@ export default function Home() {
           </Text>
         </View>
       </ScrollView>
-    </SafeAreaView>
+      { menu && 
+        <View style={styles.menu}>
+          <Pressable style={{alignSelf: "flex-end"}}
+            onPress={() => {setMenu(false)}}
+          >
+            <Image source={require("../../assets/images/close.png")} style={{height: 16, width: 16}}/>
+          </Pressable>
+          <View style={{paddingVertical: 10, gap: 10}}>
+            <Pressable style={styles.menuBtn}>
+              <Text style={[styles.menuLink, styles.menuLinkActive]}>
+                Inicio
+              </Text>
+            </Pressable>
+            <Pressable style={styles.menuBtn}>
+              <Text style={[styles.menuLink]}>
+                Turma
+              </Text>
+            </Pressable>
+            {user.type === "criança" ? 
+            <>
+            <Pressable style={styles.menuBtn}>
+              <Text style={[styles.menuLink]}>
+                Blog
+              </Text>
+            </Pressable>
+            <Pressable style={styles.menuBtn}>
+              <Text style={[styles.menuLink]}>
+                Sobre nós
+              </Text>
+            </Pressable>
+            </>
+            : 
+            <>
+            <Pressable style={styles.menuBtn}>
+              <Text style={[styles.menuLink]}>
+                Treinamento
+              </Text>
+            </Pressable>
+            <Pressable style={styles.menuBtn}>
+              <Text style={[styles.menuLink]}>
+                Kids Squad
+              </Text>
+            </Pressable>
+            </>
+            }
+            
+            <Pressable style={styles.menuBtn}>
+              <Text style={[styles.menuLink]}>
+                Agenda
+              </Text>
+            </Pressable>
+            
+            <Pressable style={styles.menuBtn} onPress={() => link.navigate("Inicio" as never)}>
+              <Text style={[styles.menuLink, styles.menuLinkActive]}>
+                Sair
+              </Text>
+            </Pressable>
+          </View>
+        </View>
+        }
+    </>  
   )
 }

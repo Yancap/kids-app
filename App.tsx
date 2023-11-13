@@ -5,6 +5,7 @@ import Home from './src/components/Home';
 import Initializer from './src/components/Initializer';
 import Login from './src/components/Login';
 import Register from './src/components/Register';
+import { UserProvider } from './src/context/UserContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -12,14 +13,16 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 
   return (
-    <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Inicio" component={Initializer} />
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Cadastro" component={Register} />
-          <Stack.Screen name="Home" component={Home} />
-        </Stack.Navigator>
-    </NavigationContainer>
+    <UserProvider>
+      <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Inicio" component={Initializer} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Cadastro" component={Register} />
+            <Stack.Screen name="Home" component={Home} />
+          </Stack.Navigator>
+      </NavigationContainer>
+    </UserProvider>
     
   );
 }
